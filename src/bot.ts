@@ -105,7 +105,7 @@ bot.on("text", async (ctx: Context) => {
                 `📊 *OTC Discount Calculation:*\n\n` +
                 `💠 *Ticker:* $${userSession.Ticker}\n` +
                 `💰 *Current Price:* ${userSession.Price.toFixed(6)} USDT\n` +
-                `📉 *Discounted Percentage:* ${userSession.Discount}%` +
+                `📉 *Discounted Percentage:* ${userSession.Discount}%\n` +
                 `🎯 *Discounted Price:* ${discountedPrice.toFixed(6)} USDT\n` +
                 `💵 *Total Invested:* ${userSession.Invested} USDT\n` +
                 `📈 *Total Tokens:* ${totalTokens.toFixed(6)} $${userSession.Ticker}`,
