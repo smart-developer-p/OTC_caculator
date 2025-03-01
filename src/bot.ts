@@ -81,7 +81,12 @@ bot.on("text", async (ctx: Context) => {
                 return ctx.reply("❌ Invalid discount. Please enter a percentage between 0 and 100 (e.g., 10).");
             }
             userSession.Discount = parsedDiscount;
-            ctx.reply("✅ Discount recorded. Now, enter the amount you want to invest in USDT (e.g., 5000).");
+            ctx.reply("✅ Discount recorded. Now, enter the amount you want to invest in USDT (e.g., 5000).", {
+                reply_markup: {
+                    keyboard: [],
+                    resize_keyboard: true
+                }
+            });
             userSession.step = "Invested";
             break;
 
@@ -100,6 +105,7 @@ bot.on("text", async (ctx: Context) => {
                 `📊 *OTC Discount Calculation:*\n\n` +
                 `💠 *Ticker:* $${userSession.Ticker}\n` +
                 `💰 *Current Price:* ${userSession.Price.toFixed(6)} USDT\n` +
+                `📉 *Discounted Percentage:* ${userSession.Discount}%` +
                 `🎯 *Discounted Price:* ${discountedPrice.toFixed(6)} USDT\n` +
                 `💵 *Total Invested:* ${userSession.Invested} USDT\n` +
                 `📈 *Total Tokens:* ${totalTokens.toFixed(6)} $${userSession.Ticker}`,
